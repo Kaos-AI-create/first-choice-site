@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Choice Insurance Services | Texas Independent Broker</title>
+    <meta name="description" content="Independent insurance broker in San Antonio serving all of Texas. 20+ years experience in Auto, SR-22, Home, and Business insurance. We shop the market for you.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gold: #c5a059;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-dark: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: #000; /* Fallback */
+        }
+
+        /* Fixed Background */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1531168551158-911226754406?auto=format&fit=crop&q=80&w=2000'); /* High-end Night Skyline */
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .agent-photo-container {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+        }
+
+        .agent-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .subheadline {
+            font-size: 1.2rem;
+            color: #444;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-primary { background: #d4af37; color: white; }
+        .btn-secondary { background: #25d366; color: white; } /* WhatsApp/Text Green */
+
+        /* Features Section */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        h2 { margin-bottom: 20px; border-bottom: 2px solid var(--primary-gold); display: inline-block; }
+
+        .service-list { list-style: none; }
+        .service-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .service-list li::before { content: "✓"; position: absolute; left: 0; color: green; font-weight: bold; }
+
+        /* Footer AEO Info */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: white;
+            padding-bottom: 40px;
+        }
+
+        .location-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .hero { text-align: center; }
+            .cta-group { justify-content: center; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "InsuranceAgency",
+      "name": "First Choice Insurance Services",
+      "description": "Independent Insurance Broker with 20+ years of experience serving San Antonio, Houston, Dallas, and Fort Worth.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Antonio",
+        "addressRegion": "TX"
+      },
+      "areaServed": ["San Antonio", "Houston", "Dallas", "Fort Worth", "Beaumont", "Texas"],
+      "telephone": "YOUR-PHONE-HERE"
+    }
+    </script>
+</head>
+<body>
+
+    <div class="bg-overlay"></div>
+
+    <div class="container">
+        <header>
+            <div class="glass-card">
+                <div class="hero">
+                    <div class="agent-photo-container">
+                        <img src="agent.png" alt="Texas Insurance Expert" class="agent-photo">
+                    </div>
+                    <div class="hero-text">
+                        <h1>San Antonio’s Trusted Partner. Texas-Wide Protection.</h1>
+                        <p class="subheadline">Serving all of Texas with personalized coverage and 20+ years of local expertise.</p>
+                        <p>Insurance should be personal. As an independent broker, I don't work for the big corporations—I work for you. I shop the entire market to find the best rates for your home, auto, and business.</p>
+                        
+                        <div class="cta-group">
+                            <a href="tel:YOUR-PHONE-HERE" class="btn btn-primary">Call Now</a>
+                            <a href="sms:YOUR-PHONE-HERE" class="btn btn-secondary">Text for Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid">
+            <div class="glass-card">
+                <h2>Our Specialties</h2>
+                <ul class="service-list">
+                    <li><strong>Auto Insurance:</strong> Standard and SR-22 filings.</li>
+                    <li><strong>Homeowners:</strong> We specialize in finding significant savings for Texas owners.</li>
+                    <li><strong>Business Auto:</strong> Keeping your commercial fleet protected.</li>
+                    <li><strong>Total Market Access:</strong> We shop Bristol West, Foremost, Standard Casualty, and more.</li>
+                </ul>
+            </div>
+
+            <div class="glass-card">
+                <h2>The Personal Edge</h2>
+                <p>When you call, I answer. No automated menus, no corporate runaround. Based in San Antonio, I’ve spent two decades helping Texas families navigate the complexities of insurance law to get them back on the road and protected at home.</p>
+                <p style="margin-top: 15px; font-weight: bold; color: #d4af37;">Black-Owned & Woman-Owned Local Business</p>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2>Headquarters: San Antonio</h2>
+            <div style="width: 100%; height: 300px; border-radius: 10px; overflow: hidden;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111197.35163155106!2d-98.5393!3d29.4241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c58af04d00eaf%3A0x856e13b10ee1404c!2sSan%20Antonio%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 First Choice Insurance Services. Serving the Lone Star State.</p>
+            <div style="margin-top: 10px;">
+                <span class="location-tag">San Antonio</span>
+                <span class="location-tag">Houston</span>
+                <span class="location-tag">Dallas</span>
+                <span class="location-tag">Fort Worth</span>
+                <span class="location-tag">Beaumont</span>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
