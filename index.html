@@ -1,19 +1,52 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Choice Insurance Services | Texas Auto, Home & Business Broker</title>
-    <meta name="description" content="Independent insurance broker in San Antonio. Fast SR-22 filing, commercial business insurance, and personal estate coverage across Texas. Serving Houston, Dallas, Austin and San Antonio for 20+ years.">
-    <meta name="keywords" content="SR-22 Filing San Antonio, Texas Insurance Broker, Business Insurance Houston, Auto Insurance Dallas, Independent Agent Austin, SR22 Texas">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <title>First Choice Insurance Services | Texas Auto, Home & Business Broker</title>
+    <meta name="description" content="Independent insurance broker in San Antonio serving all of Texas. High-speed SR-22 filing, commercial business, and personal estate coverage in Houston, Dallas, Austin, and San Antonio.">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "InsuranceAgency",
+      "name": "First Choice Insurance Services",
+      "description": "Independent insurance brokerage specializing in SR-22 filings, commercial business, and personal lines across Texas.",
+      "url": "https://yourdomain.com",
+      "telephone": "+12105909955",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "8526 Tuxford",
+        "addressLocality": "San Antonio",
+        "addressRegion": "TX",
+        "postalCode": "78239",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.5167,
+        "longitude": -98.3933
+      },
+      "areaServed": [
+        {"@type": "City", "name": "San Antonio"},
+        {"@type": "City", "name": "Houston"},
+        {"@type": "City", "name": "Austin"},
+        {"@type": "City", "name": "Dallas"},
+        {"@type": "State", "name": "Texas"}
+      ],
+      "openingHours": "Mo-Fr 09:00-18:00, Sa 10:00-14:00"
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #475569; scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #334155; scroll-behavior: smooth; }
         .title-teal { color: #0d9488 !important; font-weight: 600 !important; }
         .brand-teal { color: #0d9488; }
-        .brand-name { font-weight: 600; letter-spacing: -0.02em; font-family: 'Outfit', sans-serif; }
+        .brand-name { font-weight: 600; letter-spacing: -0.02em; }
         .brand-bold { font-weight: 700; color: #0f172a; }
 
         .glass-panel {
@@ -21,11 +54,9 @@
             border-radius: 24px;
             border: 1px solid rgba(13, 148, 136, 0.1);
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
         }
 
         .headline-main { 
-            font-family: 'Outfit', sans-serif;
             font-size: 3.2rem; 
             line-height: 1.1; 
             letter-spacing: -0.05em; 
@@ -38,17 +69,25 @@
         .carousel-container { overflow: hidden; width: 100%; position: relative; padding: 40px 0; }
         .carousel-track { 
             display: flex; 
-            width: calc(350px * 12); 
+            width: calc(350px * 12); /* 6 unique cards duplicated = 12 */
             animation: infiniteScroll 40s linear infinite; 
         }
+
         @keyframes infiniteScroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-2100px); }
+            100% { transform: translateX(calc(-350px * 6)); } 
         }
         
         .review-card { 
-            flex-shrink: 0; width: 320px; background: white; margin: 0 15px; padding: 30px; 
-            border-radius: 24px; border: 1px solid #e2e8f0; display: flex; flex-direction: column;
+            flex-shrink: 0; 
+            width: 320px; 
+            background: white; 
+            margin: 0 15px; 
+            padding: 30px; 
+            border-radius: 24px; 
+            border: 1px solid #e2e8f0; 
+            display: flex;
+            flex-direction: column;
             justify-content: space-between;
         }
 
@@ -61,7 +100,7 @@
     <nav class="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
         <div class="text-2xl brand-name uppercase">
             <span class="brand-bold">First Choice</span> 
-            <span class="brand-teal italic" style="text-decoration: underline; text-decoration-color: #f59e0b; text-underline-offset: 4px; text-decoration-thickness: 4px;">Insurance Services</span>
+            <span class="brand-teal italic" style="text-decoration: underline; text-decoration-color: #f59e0b; text-underline-offset: 4px; text-decoration-thickness: 4px; font-weight: 600;">Insurance Services</span>
         </div>
         <div class="flex items-center gap-8">
             <a href="tel:2105909955" class="font-bold text-slate-700 hover:text-teal-600 transition-colors">(210) 590-9955</a>
@@ -71,19 +110,21 @@
 
     <header class="max-w-7xl mx-auto px-6 pt-10 pb-20 flex flex-col lg:flex-row gap-16 items-center">
         <div class="w-full lg:w-5/12 relative">
-            <a href="#quote" class="absolute -top-10 -left-6 floating-sr22 bg-amber-400 text-amber-950 px-8 py-4 rounded-2xl font-bold text-xs uppercase border-4 border-white shadow-2xl z-20">★ Instant SR-22 Filing</a>
-            <img src="images/agent.png" class="w-full rounded-[3rem] shadow-2xl border-[10px] border-white relative z-10" alt="Insurance Agent">
+            <a href="#quote" class="absolute -top-10 -left-6 floating-sr22 bg-amber-400 text-amber-950 px-8 py-4 rounded-2xl font-bold text-xs uppercase border-4 border-white shadow-2xl z-20">
+                ★ Instant SR-22 Filing
+            </a>
+            <img src="images/agent.png" class="w-full rounded-[3rem] shadow-2xl border-[10px] border-white relative z-10" alt="Insurance Agent in San Antonio Texas">
         </div>
         <div class="w-full lg:w-7/12">
             <h1 class="headline-main font-extrabold text-slate-900 mb-8">
                 Reliable Coverage. <span class="brand-teal" style="text-decoration: underline; text-decoration-color: #f59e0b; text-underline-offset: 8px; text-decoration-thickness: 6px;">Right Now.</span>
             </h1>
             <div class="glass-panel p-10">
-                <h2 class="brand-teal font-bold text-2xl mb-4 flex items-center gap-3" style="font-family: 'Outfit', sans-serif;">
+                <h2 class="brand-teal font-bold text-2xl mb-4 flex items-center gap-3">
                     <span class="w-10 h-[2px] bg-amber-400"></span> A Legacy of Service
                 </h2>
-                <p class="text-lg text-slate-600 leading-relaxed font-light">
-                    While our heart is in <strong>San Antonio</strong>, our reach is statewide. At First Choice Insurance Services, we operate as a premier <strong>independent brokerage</strong>, providing total market access to 20+ carriers including <strong>Bristol West, Foremost, and Standard Casualty</strong>. Our portfolio spans a menagerie of specialized coverage—from <strong>High Net Worth personal estates</strong> and <strong>Commercial Business portfolios</strong> to <strong>Renters</strong> and high-speed <strong>SR-22 reinstatement</strong>. We protect families and enterprise owners from the <strong>Gulf Coast</strong> to <strong>North Texas</strong>. Whether you're securing a business in <strong>Houston</strong>, a tech-hub estate in <strong>Austin</strong>, or a family home in <strong>Dallas-Fort Worth</strong>, we provide the strategic protection required to stay secure across the Lone Star State.
+                <p class="text-xl text-slate-600 leading-relaxed font-medium">
+                    While our heart is in <strong>San Antonio</strong>, our reach is statewide. At First Choice Insurance Services, we operate as a premier <strong>independent brokerage</strong>, providing total market access to 20+ carriers. Our portfolio spans specialized coverage—from <strong>High Net Worth estates</strong> and <strong>Commercial Business portfolios</strong> to <strong>Renters</strong> and <strong>SR-22 reinstatement</strong>. Whether you're in <strong>Houston</strong>, <strong>Austin</strong>, or <strong>Dallas-Fort Worth</strong>, we provide the strategic protection required to stay secure across Texas.
                 </p>
             </div>
         </div>
@@ -92,14 +133,169 @@
     <section class="max-w-7xl mx-auto px-6 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
-                <h2 class="text-4xl font-extrabold text-slate-900 leading-tight" style="font-family: 'Outfit', sans-serif;">
+                <h2 class="text-4xl font-extrabold text-slate-900 leading-tight">
                     More Than a Policy—A Partner Who <span class="brand-teal italic">Actually Picks Up.</span>
                 </h2>
                 <p class="text-lg text-slate-600 leading-relaxed font-light">
-                    For over 20 years, we’ve built our reputation on a simple standard: No robots, just results. While 1-800 numbers leave you on hold, we provide direct, human service for families and businesses across the Lone Star State.
-                </p>
-                <p class="text-lg text-slate-600 leading-relaxed font-light">
-                    Whether you’re relocating from <strong class="text-slate-800">Beaumont</strong> to San Antonio, shopping for better rates in <strong class="text-slate-800">Corpus Christi</strong>, or need an immediate SR-22 in <strong class="text-slate-800">Austin</strong>, we specialize in the "Texas Transition." From <strong class="text-slate-800">Houston</strong> to <strong class="text-slate-800">Dallas-Fort Worth</strong>, we shop 20+ carriers to keep you covered.
+                    For over 20 years, we’ve built our reputation on a simple standard: No robots, just results. From <strong>Houston</strong> to <strong>Dallas-Fort Worth</strong>, we shop 20+ carriers to keep you covered.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <span class="bg-teal
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 italic">✓ Commercial & Enterprise</span>
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 italic">✓ Independent Broker Advantage</span>
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 italic">✓ High Net Worth Estates</span>
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 italic">✓ Home, Renters & Auto</span>
+                </div>
+            </div>
+            
+            <div class="glass-panel p-8 grid grid-cols-2 gap-6 bg-slate-50/50">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-3xl font-black text-teal-700 mb-1">20+</div>
+                    <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Years of Trust</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-3xl font-black text-teal-700 mb-1">20+</div>
+                    <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Insurance Carriers</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-3xl font-black text-teal-700 mb-1">100%</div>
+                    <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Texas Owned</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-3xl font-black text-teal-700 mb-1">Direct</div>
+                    <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">No Call Centers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-white border-y border-slate-100 py-8 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-4">
+                <span class="text-amber-500 text-3xl">⚡</span>
+                <p class="text-2xl md:text-3xl title-teal italic">Need an SR-22 quickly to get back on the road?</p>
+            </div>
+            <a href="#quote" class="bg-amber-400 text-amber-950 px-12 py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl">File Mine Now</a>
+        </div>
+    </div>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-100 overflow-hidden">
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"Best and most convenient insurance in San Antonio. Been with them for 4 years!"</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Queen F., San Antonio</p>
+                </div>
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"Handled my coverage in Dallas faster than anyone local. Great independent broker."</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Jordan M., Dallas-Fort Worth</p>
+                </div>
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"I needed an SR-22 in Houston immediately. They filed it electronically same day!"</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Sam L., Houston</p>
+                </div>
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"Great rates for my shop. Fast, local service even for my out-of-town properties."</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Mike T., San Antonio</p>
+                </div>
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"Professional, fast, and they actually answer the phone. Best broker in Texas."</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Elena G., Austin</p>
+                </div>
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"Handles all my commercial and personal insurance. One stop shop for all of Texas."</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— David H., San Antonio</p>
+                </div>
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"Best and most convenient insurance in San Antonio. Been with them for 4 years!"</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Queen F., San Antonio</p>
+                </div>
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"Handled my coverage in Dallas faster than anyone local. Great independent broker."</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Jordan M., Dallas-Fort Worth</p>
+                </div>
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"I needed an SR-22 in Houston immediately. They filed it electronically same day!"</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Sam L., Houston</p>
+                </div>
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"Great rates for my shop. Fast, local service even for my out-of-town properties."</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Mike T., San Antonio</p>
+                </div>
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"Professional, fast, and they actually answer the phone. Best broker in Texas."</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Elena G., Austin</p>
+                </div>
+                <div class="review-card">
+                    <div class="text-amber-400 mb-3">★★★★★</div>
+                    <p class="text-slate-600 italic mb-4">"Handles all my commercial and personal insurance. One stop shop for all of Texas."</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— David H., San Antonio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quote" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-panel p-12 md:p-20 shadow-2xl border-teal-600/10 text-center">
+                <h2 class="text-5xl title-teal mb-4">Get Your Free Quote</h2>
+                <p class="text-slate-500 mb-12">Expert protection for families and business owners across Texas.</p>
+                <div class="mt-4">
+                    <iframe data-tally-src="https://tally.so/embed/vGAKg0?hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="450" frameborder="0" title="Insurance Quote Request"></iframe>
+                    <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s)}</script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-left">
+            <div>
+                <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Direct Contact</h4>
+                <p class="text-sm font-light text-slate-400 leading-loose">
+                    Phone: (210) 590-9955<br>
+                    Email: firstchoice_ins@sbcglobal.net<br>
+                    <strong class="text-white">8526 Tuxford</strong><br>
+                    San Antonio, TX 78239
+                </p>
+            </div>
+            <div>
+                <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Business Hours</h4>
+                <p class="text-sm font-light text-slate-400 leading-loose">
+                    Mon — Fri: 09:00 AM - 06:00 PM<br>
+                    Sat: 10:00 AM - 02:00 PM<br>
+                    Sun: Closed
+                </p>
+            </div>
+            <div>
+                <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Legal</h4>
+                <ul class="text-sm font-light text-slate-400 space-y-4">
+                    <li><a href="privacy.html" class="hover:text-teal-400 transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">ADA Compliance</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Our Location</h4>
+                <div class="rounded-2xl overflow-hidden border border-slate-700">
+                    <iframe class="w-full h-40" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3472.935105267439!2d-98.3888371!3d29.5182141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865cf5d78a1a3671%3A0xc3f83d03820299f0!2s8526%20Tuxford%2C%20San%20Antonio%2C%20TX%2078239!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-slate-800 text-center text-[10px] text-slate-600 uppercase tracking-widest">
+            © 2026 First Choice Insurance Services | San Antonio & Statewide Texas
+        </div>
+    </footer>
+
+</body>
+</html>
