@@ -66,11 +66,12 @@
             pointer-events: none;
         }
 
+        /* RAISED GLASS EFFECT */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 24px;
-            border: 1px solid rgba(13, 148, 136, 0.1);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(13, 148, 136, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
             backdrop-filter: blur(8px);
         }
 
@@ -106,6 +107,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
 
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
@@ -131,6 +133,18 @@
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
             margin-right: 8px;
             flex-shrink: 0;
+        }
+
+        /* RAISED INTERACTIVE CARDS */
+        .raised-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            background: white;
+        }
+        .raised-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 35px -10px rgba(0, 0, 0, 0.12);
+            border-color: rgba(13, 148, 136, 0.3);
         }
     </style>
 </head>
@@ -209,26 +223,26 @@
 
     <section class="max-w-7xl mx-auto px-6 py-12 relative z-10">
         <div class="glass-panel p-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100">
+            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100 raised-card">
                 <div class="text-3xl font-black text-teal-700 mb-1">20+</div>
                 <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Years of Trust</div>
             </div>
-            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100">
+            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100 raised-card">
                 <div class="text-3xl font-black text-teal-700 mb-1">20+</div>
                 <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Insurance Carriers</div>
             </div>
-            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100">
+            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100 raised-card">
                 <div class="text-3xl font-black text-teal-700 mb-1">100%</div>
                 <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Texas Owned</div>
             </div>
-            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100">
+            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100 raised-card">
                 <div class="text-3xl font-black text-teal-700 mb-1">Direct</div>
                 <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">No Call Centers</div>
             </div>
         </div>
     </section>
 
-    <div class="bg-white/80 backdrop-blur-md border-y border-slate-100 py-10 shadow-sm relative z-10">
+    <div class="bg-white/80 backdrop-blur-md border-y border-slate-100 py-10 shadow-lg relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-4">
                 <span class="text-amber-500 text-4xl">🏗️</span>
@@ -292,22 +306,22 @@
             <p class="text-slate-500 mb-10 max-w-2xl mx-auto font-medium">As an independent agency, First Choice Insurance Services partners with top-rated national carriers like <strong>Bristol West, Foremost, and Standard Casualty</strong> to protect what matters most.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 shadow-sm hover:shadow-md transition-all">
+                <div class="p-8 rounded-3xl border border-slate-100 raised-card transition-all">
                     <div class="text-teal-600 text-3xl mb-4">🏗️</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Builder's Risk</h4>
                     <p class="text-sm text-slate-500">Essential coverage for ground-up construction and major renovations across Texas.</p>
                 </div>
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 shadow-sm hover:shadow-md transition-all">
+                <div class="p-8 rounded-3xl border border-slate-100 raised-card transition-all">
                     <div class="text-teal-600 text-3xl mb-4">🚗</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Personal Auto</h4>
                     <p class="text-sm text-slate-500">Reliable coverage and instant SR-22 filings to keep you on the road legally.</p>
                 </div>
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 shadow-sm hover:shadow-md transition-all">
+                <div class="p-8 rounded-3xl border border-slate-100 raised-card transition-all">
                     <div class="text-teal-600 text-3xl mb-4">🏠</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Homeowners</h4>
                     <p class="text-sm text-slate-500">Protecting your biggest investment with specialized property policies statewide.</p>
                 </div>
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 shadow-sm hover:shadow-md transition-all">
+                <div class="p-8 rounded-3xl border border-slate-100 raised-card transition-all">
                     <div class="text-teal-600 text-3xl mb-4">🚛</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Business Auto</h4>
                     <p class="text-sm text-slate-500">Commercial vehicle and fleet insurance tailored for the Texas business environment.</p>
