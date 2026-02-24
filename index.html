@@ -49,7 +49,7 @@
         .brand-name { font-weight: 600; letter-spacing: -0.02em; }
         .brand-bold { font-weight: 700; color: #0f172a; }
 
-        /* FIXED TEXAS WATERMARK - Adjusted for better visibility */
+        /* TEXAS WATERMARK */
         .texas-watermark {
             position: fixed;
             top: 10%;
@@ -60,7 +60,6 @@
             background-repeat: no-repeat;
             background-position: center right;
             background-size: contain;
-            /* Faint Teal-Gold Gradient Effect */
             filter: sepia(1) saturate(1.5) hue-rotate(140deg);
             opacity: 0.08; 
             z-index: -1;
@@ -84,7 +83,6 @@
         @media (max-width: 1150px) { .headline-main { font-size: 2.6rem; } }
         @media (max-width: 768px) { .headline-main { white-space: normal; font-size: 2.2rem; } }
 
-        /* FULL INFINITE CAROUSEL ANIMATION */
         .carousel-container { overflow: hidden; width: 100%; position: relative; padding: 40px 0; }
         .carousel-track { 
             display: flex; 
@@ -113,11 +111,6 @@
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .floating-sr22 { animation: float 3s ease-in-out infinite; }
 
-        .carrier-section-bg {
-            background-color: transparent;
-            position: relative;
-        }
-
         .footer-texas-outline {
             position: absolute;
             right: 5%;
@@ -128,7 +121,6 @@
             filter: brightness(0) invert(1);
         }
 
-        /* Teal Star Bullet */
         .lone-star-bullet {
             display: inline-flex;
             align-items: center;
@@ -144,10 +136,8 @@
 </head>
 <body>
 
-    <!-- Fixed Watermark -->
     <div class="texas-watermark"></div>
 
-    <!-- Header Navigation -->
     <nav class="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center relative z-20">
         <div class="text-2xl brand-name uppercase">
             <span class="brand-bold text-slate-900">First Choice</span> 
@@ -159,7 +149,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="max-w-7xl mx-auto px-6 pt-10 pb-20 flex flex-col lg:flex-row gap-16 items-center relative z-10">
         <div class="w-full lg:w-5/12 relative">
             <a href="#quote" class="absolute -top-10 -left-6 floating-sr22 bg-amber-400 text-amber-950 px-8 py-4 rounded-2xl font-bold text-xs uppercase border-4 border-white shadow-2xl z-20">
@@ -182,10 +171,8 @@
         </div>
     </header>
 
-    <!-- Main Features / Bio Section -->
     <section class="max-w-7xl mx-auto px-6 py-12 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-            <!-- Let us be your first choice card -->
             <div class="glass-panel p-10 border-t-4 border-t-amber-400 flex flex-col justify-between">
                 <div>
                     <h3 class="brand-teal font-bold text-2xl mb-4 uppercase tracking-tight italic">Let us be your first choice!</h3>
@@ -203,13 +190,12 @@
                 </div>
             </div>
 
-            <!-- Regional Partner Section -->
             <div class="space-y-6">
                 <h2 class="text-4xl font-extrabold text-slate-900 leading-tight">
                     More Than a Policy — <span class="brand-teal italic" style="text-decoration: underline; text-decoration-color: #f59e0b; text-underline-offset: 6px; text-decoration-thickness: 3px;">A Partner Who Actually Picks Up.</span>
                 </h2>
                 <p class="text-lg text-slate-600 leading-relaxed font-light">
-                    For over 20 years, we’ve built our reputation on a simple standard: No robots, just results. From <strong class="brand-teal">Houston to Dallas-Fort Worth</strong>, we shop 20+ carriers to keep you covered across all four corners—including the <strong class="brand-teal">Panhandle</strong>, <strong class="brand-teal">West Texas</strong>, <strong class="brand-teal">East Texas</strong>, and <strong class="brand-teal">Corpus Christi</strong>.
+                    For over 20 years, we’ve built our reputation on a simple standard: No robots, just results. We shop 20+ carriers to keep you covered across all four corners—including <strong class="brand-teal">Amarillo</strong> and the <strong class="brand-teal">Panhandle</strong>, <strong class="brand-teal">Midland-Odessa</strong> and <strong class="brand-teal">West Texas</strong>, <strong class="brand-teal">Beaumont</strong> and <strong class="brand-teal">East Texas</strong>, <strong class="brand-teal">Wichita Falls</strong> and <strong class="brand-teal">North Texas</strong>, and <strong class="brand-teal">Corpus Christi</strong>.
                 </p>
                 <div class="grid grid-cols-2 gap-y-4 pt-4">
                     <span class="flex items-center text-sm font-bold brand-teal"><i class="lone-star-bullet"></i> Builder's Risk</span>
@@ -221,7 +207,6 @@
         </div>
     </section>
 
-    <!-- Stats Bar -->
     <section class="max-w-7xl mx-auto px-6 py-12 relative z-10">
         <div class="glass-panel p-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100">
@@ -243,7 +228,6 @@
         </div>
     </section>
 
-    <!-- Builder's Risk Highlight -->
     <div class="bg-white/80 backdrop-blur-md border-y border-slate-100 py-10 shadow-sm relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-4">
@@ -257,11 +241,9 @@
         </div>
     </div>
 
-    <!-- Testimonials Carousel -->
     <section class="py-20 bg-slate-50/50 border-y border-slate-100 overflow-hidden relative z-10">
         <div class="carousel-container">
             <div class="carousel-track">
-                <!-- Duplicate reviews for continuous loop -->
                 <div class="review-card">
                     <div class="text-amber-400 mb-3">★★★★★</div>
                     <p class="text-slate-600 italic mb-4">"Best and most convenient insurance in San Antonio. Been with them for 4 years!"</p>
@@ -287,16 +269,10 @@
                     <p class="text-slate-600 italic mb-4">"Professional, fast, and they actually answer the phone. Best broker in Texas."</p>
                     <p class="font-bold text-teal-900 text-xs uppercase">— Elena G., Austin</p>
                 </div>
-                <div class="review-card">
-                    <div class="text-amber-400 mb-3">★★★★★</div>
-                    <p class="text-slate-600 italic mb-4">"Best and most convenient insurance in San Antonio. Been with them for 4 years!"</p>
-                    <p class="font-bold text-teal-900 text-xs uppercase">— Queen F., San Antonio</p>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Quote Form Section -->
     <section id="quote" class="py-24 bg-white/40 relative z-10">
         <div class="max-w-4xl mx-auto px-6">
             <div class="glass-panel p-12 md:p-20 shadow-2xl border-teal-600/10 text-center">
@@ -310,8 +286,7 @@
         </div>
     </section>
 
-    <!-- Carriers Section - CLEAN WITH BACKGROUND -->
-    <section class="py-24 carrier-section-bg border-t border-slate-100 relative z-10">
+    <section class="py-24 border-t border-slate-100 relative z-10">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Expert Coverage Through Trusted Carriers</h2>
             <p class="text-slate-500 mb-10 max-w-2xl mx-auto font-medium">As an independent agency, First Choice Insurance Services partners with top-rated national carriers like <strong>Bristol West, Foremost, and Standard Casualty</strong> to protect what matters most.</p>
@@ -341,10 +316,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-slate-900 text-white pt-24 pb-12 relative overflow-hidden z-20">
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Outline_of_Texas.svg" class="footer-texas-outline" alt="">
-        
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-left relative z-10">
             <div>
                 <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Direct Contact</h4>
