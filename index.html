@@ -43,17 +43,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #334155; scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #334155; scroll-behavior: smooth; position: relative; }
         .title-teal { color: #0d9488 !important; font-weight: 600 !important; }
         .brand-teal { color: #0d9488; }
         .brand-name { font-weight: 600; letter-spacing: -0.02em; }
         .brand-bold { font-weight: 700; color: #0f172a; }
+
+        /* FIXED TEXAS WATERMARK */
+        .texas-watermark {
+            position: fixed;
+            top: 15%;
+            right: -5%;
+            width: 70vw;
+            height: 70vh;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e4/Outline_of_Texas.svg');
+            background-repeat: no-repeat;
+            background-position: center right;
+            background-size: contain;
+            /* Faint Teal-Gold Gradient Effect using mask/filter */
+            filter: sepia(1) saturate(2) hue-rotate(130deg) opacity(0.04); 
+            z-index: -1;
+            pointer-events: none;
+        }
 
         .glass-panel {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 24px;
             border: 1px solid rgba(13, 148, 136, 0.1);
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(8px);
         }
 
         .headline-main { 
@@ -94,28 +112,9 @@
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .floating-sr22 { animation: float 3s ease-in-out infinite; }
 
-        /* TEXAS BRANDING STYLES - STRONGER VISIBILITY */
-        .texas-flag-bg {
+        .carrier-section-bg {
+            background-color: transparent;
             position: relative;
-            background-color: #ffffff;
-            z-index: 1;
-            overflow: hidden;
-        }
-        
-        .texas-flag-bg::before {
-            content: "";
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 100%; height: 100%;
-            transform: translate(-50%, -50%);
-            /* Use a high-quality SVG source */
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: grayscale(100%) opacity(0.08); /* Increased opacity for visibility */
-            z-index: -1;
-            pointer-events: none;
         }
 
         .footer-texas-outline {
@@ -128,7 +127,7 @@
             filter: brightness(0) invert(1);
         }
 
-        /* Fixed Star Bullet logic */
+        /* Teal Star Bullet */
         .lone-star-bullet {
             display: inline-flex;
             align-items: center;
@@ -144,20 +143,23 @@
 </head>
 <body>
 
+    <!-- Fixed Watermark -->
+    <div class="texas-watermark"></div>
+
     <!-- Header Navigation -->
-    <nav class="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center">
+    <nav class="max-w-7xl mx-auto px-6 py-8 flex justify-between items-center relative z-20">
         <div class="text-2xl brand-name uppercase">
-            <span class="brand-bold">First Choice</span> 
+            <span class="brand-bold text-slate-900">First Choice</span> 
             <span class="brand-teal italic" style="text-decoration: underline; text-decoration-color: #f59e0b; text-underline-offset: 4px; text-decoration-thickness: 4px; font-weight: 600;">Insurance Services</span>
         </div>
         <div class="flex items-center gap-8">
             <a href="tel:2105909955" class="font-bold text-slate-700 hover:text-teal-600 transition-colors">(210) 590-9955</a>
-            <a href="#quote" class="bg-teal-700 text-white px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow-lg">Get Quote</a>
+            <a href="#quote" class="bg-teal-700 text-white px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow-lg hover:bg-teal-800 transition-all">Get Quote</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="max-w-7xl mx-auto px-6 pt-10 pb-20 flex flex-col lg:flex-row gap-16 items-center">
+    <header class="max-w-7xl mx-auto px-6 pt-10 pb-20 flex flex-col lg:flex-row gap-16 items-center relative z-10">
         <div class="w-full lg:w-5/12 relative">
             <a href="#quote" class="absolute -top-10 -left-6 floating-sr22 bg-amber-400 text-amber-950 px-8 py-4 rounded-2xl font-bold text-xs uppercase border-4 border-white shadow-2xl z-20">
                 ★ Instant SR-22 Filing
@@ -180,7 +182,7 @@
     </header>
 
     <!-- Main Features / Bio Section -->
-    <section class="max-w-7xl mx-auto px-6 py-12">
+    <section class="max-w-7xl mx-auto px-6 py-12 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
             <!-- Let us be your first choice card -->
             <div class="glass-panel p-10 border-t-4 border-t-amber-400 flex flex-col justify-between">
@@ -203,37 +205,37 @@
             <!-- Regional Partner Section -->
             <div class="space-y-6">
                 <h2 class="text-4xl font-extrabold text-slate-900 leading-tight">
-                    More Than a Policy—A Partner Who <span class="brand-teal italic">Actually Picks Up.</span>
+                    More Than a Policy — <span class="brand-teal italic" style="text-decoration: underline; text-decoration-color: #f59e0b; text-underline-offset: 6px; text-decoration-thickness: 3px;">A Partner Who Actually Picks Up.</span>
                 </h2>
                 <p class="text-lg text-slate-600 leading-relaxed font-light">
                     For over 20 years, we’ve built our reputation on a simple standard: No robots, just results. From <strong>Houston to Dallas-Fort Worth</strong>, we shop 20+ carriers to keep you covered across all four corners—including the <strong>Panhandle</strong>, <strong>West Texas</strong>, <strong>East Texas</strong>, and <strong>Corpus Christi</strong>.
                 </p>
                 <div class="grid grid-cols-2 gap-y-4 pt-4">
-                    <span class="flex items-center text-sm font-bold text-slate-700"><i class="lone-star-bullet"></i> Builder's Risk</span>
-                    <span class="flex items-center text-sm font-bold text-slate-700"><i class="lone-star-bullet"></i> Commercial Business</span>
-                    <span class="flex items-center text-sm font-bold text-slate-700"><i class="lone-star-bullet"></i> Independent Advantage</span>
-                    <span class="flex items-center text-sm font-bold text-slate-700"><i class="lone-star-bullet"></i> Business Auto</span>
+                    <span class="flex items-center text-sm font-bold brand-teal"><i class="lone-star-bullet"></i> Builder's Risk</span>
+                    <span class="flex items-center text-sm font-bold brand-teal"><i class="lone-star-bullet"></i> Commercial Business</span>
+                    <span class="flex items-center text-sm font-bold brand-teal"><i class="lone-star-bullet"></i> Independent Advantage</span>
+                    <span class="flex items-center text-sm font-bold brand-teal"><i class="lone-star-bullet"></i> Business Auto</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Stats Bar -->
-    <section class="max-w-7xl mx-auto px-6 py-12">
-        <div class="glass-panel p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 bg-slate-50/50">
-            <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+    <section class="max-w-7xl mx-auto px-6 py-12 relative z-10">
+        <div class="glass-panel p-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100">
                 <div class="text-3xl font-black text-teal-700 mb-1">20+</div>
                 <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Years of Trust</div>
             </div>
-            <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100">
                 <div class="text-3xl font-black text-teal-700 mb-1">20+</div>
                 <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Insurance Carriers</div>
             </div>
-            <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100">
                 <div class="text-3xl font-black text-teal-700 mb-1">100%</div>
                 <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">Texas Owned</div>
             </div>
-            <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+            <div class="text-center p-6 bg-white/50 rounded-2xl shadow-sm border border-slate-100">
                 <div class="text-3xl font-black text-teal-700 mb-1">Direct</div>
                 <div class="text-[10px] uppercase tracking-widest font-bold text-slate-400">No Call Centers</div>
             </div>
@@ -241,7 +243,7 @@
     </section>
 
     <!-- Builder's Risk Highlight -->
-    <div class="bg-white border-y border-slate-100 py-10 shadow-sm">
+    <div class="bg-white/80 backdrop-blur-md border-y border-slate-100 py-10 shadow-sm relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-4">
                 <span class="text-amber-500 text-4xl">🏗️</span>
@@ -255,9 +257,10 @@
     </div>
 
     <!-- Testimonials Carousel -->
-    <section class="py-20 bg-slate-50 border-y border-slate-100 overflow-hidden">
+    <section class="py-20 bg-slate-50/50 border-y border-slate-100 overflow-hidden relative z-10">
         <div class="carousel-container">
             <div class="carousel-track">
+                <!-- Duplicate reviews for continuous loop -->
                 <div class="review-card">
                     <div class="text-amber-400 mb-3">★★★★★</div>
                     <p class="text-slate-600 italic mb-4">"Best and most convenient insurance in San Antonio. Been with them for 4 years!"</p>
@@ -283,23 +286,17 @@
                     <p class="text-slate-600 italic mb-4">"Professional, fast, and they actually answer the phone. Best broker in Texas."</p>
                     <p class="font-bold text-teal-900 text-xs uppercase">— Elena G., Austin</p>
                 </div>
-                <!-- Duplicate cards for infinite loop -->
                 <div class="review-card">
                     <div class="text-amber-400 mb-3">★★★★★</div>
                     <p class="text-slate-600 italic mb-4">"Best and most convenient insurance in San Antonio. Been with them for 4 years!"</p>
                     <p class="font-bold text-teal-900 text-xs uppercase">— Queen F., San Antonio</p>
-                </div>
-                <div class="review-card">
-                    <div class="text-amber-400 mb-3">★★★★★</div>
-                    <p class="text-slate-600 italic mb-4">"Handled my coverage in Dallas faster than anyone local. Great independent broker."</p>
-                    <p class="font-bold text-teal-900 text-xs uppercase">— Jordan M., Dallas-Fort Worth</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Quote Form Section -->
-    <section id="quote" class="py-24 bg-white">
+    <section id="quote" class="py-24 bg-white/40 relative z-10">
         <div class="max-w-4xl mx-auto px-6">
             <div class="glass-panel p-12 md:p-20 shadow-2xl border-teal-600/10 text-center">
                 <h2 class="text-5xl title-teal mb-4">Get Your Free Quote</h2>
@@ -312,29 +309,29 @@
         </div>
     </section>
 
-    <!-- Carriers Section with Texas Flag Overlay -->
-    <section class="py-24 texas-flag-bg border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+    <!-- Carriers Section - CLEAN WITH BACKGROUND -->
+    <section class="py-24 carrier-section-bg border-t border-slate-100 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Expert Coverage Through Trusted Carriers</h2>
             <p class="text-slate-500 mb-10 max-w-2xl mx-auto font-medium">As an independent agency, First Choice Insurance Services partners with top-rated national carriers like <strong>Bristol West, Foremost, and Standard Casualty</strong> to protect what matters most.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white/95 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 shadow-sm hover:shadow-md transition-all">
                     <div class="text-teal-600 text-3xl mb-4">🏗️</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Builder's Risk</h4>
                     <p class="text-sm text-slate-500">Essential coverage for ground-up construction and major renovations across Texas.</p>
                 </div>
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white/95 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 shadow-sm hover:shadow-md transition-all">
                     <div class="text-teal-600 text-3xl mb-4">🚗</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Personal Auto</h4>
                     <p class="text-sm text-slate-500">Reliable coverage and instant SR-22 filings to keep you on the road legally.</p>
                 </div>
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white/95 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 shadow-sm hover:shadow-md transition-all">
                     <div class="text-teal-600 text-3xl mb-4">🏠</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Homeowners</h4>
                     <p class="text-sm text-slate-500">Protecting your biggest investment with specialized property policies statewide.</p>
                 </div>
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white/95 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 shadow-sm hover:shadow-md transition-all">
                     <div class="text-teal-600 text-3xl mb-4">🚛</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Business Auto</h4>
                     <p class="text-sm text-slate-500">Commercial vehicle and fleet insurance tailored for the Texas business environment.</p>
@@ -344,14 +341,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white pt-24 pb-12 relative overflow-hidden">
+    <footer class="bg-slate-900 text-white pt-24 pb-12 relative overflow-hidden z-20">
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Outline_of_Texas.svg" class="footer-texas-outline" alt="">
         
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-left relative z-10">
             <div>
                 <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Direct Contact</h4>
                 <p class="text-sm font-light text-slate-400 leading-loose">
-                    Phone: <a href="tel:2105909955" class="text-white hover:text-teal-400">(210) 590-9955</a><br>
+                    Phone: <a href="tel:2105909955" class="text-white hover:text-teal-400 transition-colors">(210) 590-9955</a><br>
                     Email: info@fcinsuranceservices.com<br>
                     <strong class="text-white">8526 Tuxford, San Antonio, TX 78239</strong><br>
                     Serving All Four Corners of Texas
