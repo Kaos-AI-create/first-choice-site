@@ -69,7 +69,7 @@
         .carousel-container { overflow: hidden; width: 100%; position: relative; padding: 40px 0; }
         .carousel-track { 
             display: flex; 
-            width: calc(350px * 12); /* 6 unique cards duplicated = 12 */
+            width: calc(350px * 12); 
             animation: infiniteScroll 40s linear infinite; 
         }
 
@@ -93,6 +93,53 @@
 
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .floating-sr22 { animation: float 3s ease-in-out infinite; }
+
+        /* TEXAS BRANDING STYLES */
+        .texas-flag-bg {
+            position: relative;
+            background-color: #ffffff;
+            z-index: 1;
+        }
+        
+        /* Subtle texture for the coverage section */
+        .texas-flag-bg::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+                              url('https://www.transparenttextures.com/patterns/carbon-fibre.png'), 
+                              url('https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg');
+            background-size: cover, auto, 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: grayscale(100%) brightness(1.1);
+            opacity: 0.08;
+            mask-image: radial-gradient(circle, black 30%, transparent 90%);
+            -webkit-mask-image: radial-gradient(circle, black 30%, transparent 90%);
+            z-index: -1;
+        }
+
+        .footer-texas-outline {
+            position: absolute;
+            right: 5%;
+            top: 15%;
+            width: 280px;
+            opacity: 0.04;
+            pointer-events: none;
+            filter: invert(1);
+        }
+
+        .lone-star-bullet {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 12px;
+            height: 12px;
+            background-color: #0d9488;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body>
@@ -130,10 +177,8 @@
         </div>
     </header>
 
-    <!-- NEW POSTCARD CARD INTEGRATION -->
     <section class="max-w-7xl mx-auto px-6 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-            <!-- THE POSTCARD FRONT CARD -->
             <div class="glass-panel p-10 border-t-4 border-t-amber-400 flex flex-col justify-between">
                 <div>
                     <h3 class="brand-teal font-bold text-2xl mb-4 uppercase tracking-tight italic">Let us be your first choice!</h3>
@@ -151,7 +196,6 @@
                 </div>
             </div>
 
-            <!-- ORIGINAL PARTNER SECTION -->
             <div class="space-y-6">
                 <h2 class="text-4xl font-extrabold text-slate-900 leading-tight">
                     More Than a Policy—A Partner Who <span class="brand-teal italic">Actually Picks Up.</span>
@@ -160,10 +204,10 @@
                     For over 20 years, we’ve built our reputation on a simple standard: No robots, just results. From <strong>Houston</strong> to <strong>Dallas-Fort Worth</strong>, we shop 20+ carriers to keep you covered.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 italic">✓ Builder's Risk & Construction</span>
-                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 italic">✓ Commercial & Enterprise</span>
-                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 italic">✓ Independent Broker Advantage</span>
-                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 italic">✓ Home, Renters & Auto</span>
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Builder's Risk & Construction</span>
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Commercial & Enterprise</span>
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Independent Broker Advantage</span>
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Home, Renters & Auto</span>
                 </div>
             </div>
         </div>
@@ -190,7 +234,6 @@
         </div>
     </section>
 
-    <!-- HIGHLIGHTED BUILDER'S RISK CTA -->
     <div class="bg-white border-y border-slate-100 py-10 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-4">
@@ -265,22 +308,77 @@
         </div>
     </section>
 
-    <section class="py-16 bg-white border-t border-slate-100">
+    <!-- CARRIER SECTION WITH FADED TEXAS FLAG -->
+    <section class="py-24 texas-flag-bg border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Expert Coverage Through Trusted Carriers</h2>
             <p class="text-slate-500 mb-10 max-w-2xl mx-auto">As an independent agency, First Choice Insurance Services partners with top-rated national carriers like <strong>Bristol West, Foremost, and Standard Casualty</strong> to protect what matters most.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="p-8 rounded-3xl border border-slate-100 bg-slate-50/50">
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow">
                     <div class="text-teal-600 text-3xl mb-4">🏗️</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Builder's Risk</h4>
                     <p class="text-sm text-slate-500">Essential coverage for ground-up construction and major renovations.</p>
                 </div>
-                <div class="p-8 rounded-3xl border border-slate-100 bg-slate-50/50">
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow">
                     <div class="text-teal-600 text-3xl mb-4">🚗</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Personal Auto</h4>
                     <p class="text-sm text-slate-500">Reliable coverage and instant SR-22 filings to keep you on the road.</p>
                 </div>
-                <div class="p-8 rounded-3xl border border-slate-100 bg-slate-50/50">
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow">
                     <div class="text-teal-600 text-3xl mb-4">🏠</div>
-                    <h4 class="text-xl font-bold
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Homeowners</h4>
+                    <p class="text-sm text-slate-500">Protecting your biggest investment with specialized property policies.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-teal-600 text-3xl mb-4">🚛</div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Business Auto</h4>
+                    <p class="text-sm text-slate-500">Commercial vehicle and fleet insurance tailored for Texas business owners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white pt-24 pb-12 relative overflow-hidden">
+        <!-- Minimalist Texas Outline -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Outline_of_Texas.svg" class="footer-texas-outline" alt="">
+        
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-left relative z-10">
+            <div>
+                <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Direct Contact</h4>
+                <p class="text-sm font-light text-slate-400 leading-loose">
+                    Phone: (210) 590-9955<br>
+                    Email: info@fcinsuranceservices.com<br>
+                    <strong class="text-white">8526 Tuxford, San Antonio, TX 78239</strong><br>
+                    San Antonio, TX 78239
+                </p>
+            </div>
+            <div>
+                <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Business Hours</h4>
+                <p class="text-sm font-light text-slate-400 leading-loose">
+                    Mon — Fri: 09:00 AM - 06:00 PM<br>
+                    Sat: 10:00 AM - 02:00 PM<br>
+                    Sun: Closed
+                </p>
+            </div>
+            <div>
+                <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Legal</h4>
+                <ul class="text-sm font-light text-slate-400 space-y-4">
+                    <li><a href="privacy.html" class="hover:text-teal-400 transition-colors">Privacy Policy</a></li>
+                    <li><a href="terms.html" class="hover:text-teal-400 transition-colors">Legal Disclosures</a></li>
+                    <li><a href="accessibility.html" class="hover:text-teal-400 transition-colors">ADA Compliance</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Our Location</h4>
+                <div class="rounded-2xl overflow-hidden border border-slate-700">
+                    <iframe class="w-full h-40" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3472.935105267439!2d-98.3888371!3d29.5182141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865cf5d78a1a3671%3A0xc3f83d03820299f0!2s8526%20Tuxford%2C%20San%20Antonio%2C%20TX%2078239!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-slate-800 text-center text-[10px] text-slate-600 uppercase tracking-widest relative z-10">
+            © 2026 First Choice Insurance Services | San Antonio & Statewide Texas
+        </div>
+    </footer>
+</body>
+</html>
