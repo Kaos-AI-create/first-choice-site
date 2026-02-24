@@ -99,45 +99,44 @@
             position: relative;
             background-color: #ffffff;
             z-index: 1;
+            overflow: hidden;
         }
         
-        /* Subtle texture for the coverage section */
         .texas-flag-bg::before {
             content: "";
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-                              url('https://www.transparenttextures.com/patterns/carbon-fibre.png'), 
-                              url('https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg');
-            background-size: cover, auto, 50%;
+            top: 50%; left: 50%;
+            width: 120%; height: 120%;
+            transform: translate(-50%, -50%);
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg');
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            filter: grayscale(100%) brightness(1.1);
-            opacity: 0.08;
-            mask-image: radial-gradient(circle, black 30%, transparent 90%);
-            -webkit-mask-image: radial-gradient(circle, black 30%, transparent 90%);
+            filter: grayscale(100%) brightness(1.2) contrast(0.8);
+            opacity: 0.05;
             z-index: -1;
+            pointer-events: none;
         }
 
         .footer-texas-outline {
             position: absolute;
-            right: 5%;
-            top: 15%;
-            width: 280px;
-            opacity: 0.04;
+            right: 2%;
+            top: 10%;
+            width: 350px;
+            opacity: 0.1;
             pointer-events: none;
-            filter: invert(1);
+            filter: brightness(0) invert(1);
         }
 
         .lone-star-bullet {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             background-color: #0d9488;
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            margin-right: 10px;
+            margin-right: 12px;
             flex-shrink: 0;
         }
     </style>
@@ -189,8 +188,8 @@
                         Low cost & excellent personal service! Give a call or drop by for a cup of coffee & discuss your insurance needs!
                     </p>
                 </div>
-                <div class="pt-4">
-                    <a href="tel:2105909955" class="inline-flex items-center gap-2 text-teal-700 font-extrabold text-lg hover:text-amber-600 transition-colors underline underline-offset-4">
+                <div class="pt-4 text-center lg:text-left">
+                    <a href="tel:2105909955" class="inline-flex items-center gap-2 text-teal-700 font-extrabold text-xl hover:text-amber-600 transition-colors underline underline-offset-4">
                         📞 Call Deborah Today: (210) 590-9955
                     </a>
                 </div>
@@ -198,16 +197,16 @@
 
             <div class="space-y-6">
                 <h2 class="text-4xl font-extrabold text-slate-900 leading-tight">
-                    More Than a Policy—A Partner Who <span class="brand-teal italic">Actually Picks Up.</span>
+                    Covering Every Corner of <span class="brand-teal italic">The Lone Star State.</span>
                 </h2>
                 <p class="text-lg text-slate-600 leading-relaxed font-light">
-                    For over 20 years, we’ve built our reputation on a simple standard: No robots, just results. From <strong>Houston</strong> to <strong>Dallas-Fort Worth</strong>, we shop 20+ carriers to keep you covered.
+                    For over 20 years, we’ve built our reputation on a simple standard: No robots, just results. From the <strong>Gulf Coast and Corpus Christi</strong> to the <strong>Panhandle</strong>, and from <strong>East Texas piney woods</strong> to <strong>El Paso and West Texas</strong>, we shop 20+ carriers to keep you covered.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Builder's Risk & Construction</span>
-                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Commercial & Enterprise</span>
-                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Independent Broker Advantage</span>
-                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Home, Renters & Auto</span>
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Builder's Risk & New Construction</span>
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Business & Fleet Auto</span>
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Commercial Enterprise</span>
+                    <span class="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-xs font-bold border border-teal-100 flex items-center shadow-sm"><i class="lone-star-bullet"></i> Home, Renters & Personal Auto</span>
                 </div>
             </div>
         </div>
@@ -283,13 +282,13 @@
                 <!-- Duplicate cards for infinite loop -->
                 <div class="review-card">
                     <div class="text-amber-400 mb-3">★★★★★</div>
-                    <p class="text-slate-600 italic mb-4">"Best and most convenient insurance in San Antonio. Been with them for 4 years!"</p>
-                    <p class="font-bold text-teal-900 text-xs uppercase">— Queen F., San Antonio</p>
+                    <p class="text-slate-600 italic mb-4">"Handled my business fleet insurance in Midland with no hassle."</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Chris R., Midland/Odessa</p>
                 </div>
                 <div class="review-card">
                     <div class="text-amber-400 mb-3">★★★★★</div>
-                    <p class="text-slate-600 italic mb-4">"Handled my coverage in Dallas faster than anyone local. Great independent broker."</p>
-                    <p class="font-bold text-teal-900 text-xs uppercase">— Jordan M., Dallas-Fort Worth</p>
+                    <p class="text-slate-600 italic mb-4">"Excellent service for our coastal property in Corpus Christi."</p>
+                    <p class="font-bold text-teal-900 text-xs uppercase">— Sarah W., Corpus Christi</p>
                 </div>
             </div>
         </div>
@@ -308,49 +307,49 @@
         </div>
     </section>
 
-    <!-- CARRIER SECTION WITH FADED TEXAS FLAG -->
+    <!-- CARRIER SECTION WITH FIXED VISIBLE TEXAS FLAG -->
     <section class="py-24 texas-flag-bg border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 text-center">
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
             <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Expert Coverage Through Trusted Carriers</h2>
-            <p class="text-slate-500 mb-10 max-w-2xl mx-auto">As an independent agency, First Choice Insurance Services partners with top-rated national carriers like <strong>Bristol West, Foremost, and Standard Casualty</strong> to protect what matters most.</p>
+            <p class="text-slate-500 mb-10 max-w-2xl mx-auto font-medium">As an independent agency, First Choice Insurance Services partners with top-rated national carriers like <strong>Bristol West, Foremost, and Standard Casualty</strong> to protect what matters most.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
                     <div class="text-teal-600 text-3xl mb-4">🏗️</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Builder's Risk</h4>
-                    <p class="text-sm text-slate-500">Essential coverage for ground-up construction and major renovations.</p>
+                    <p class="text-sm text-slate-500">Essential coverage for ground-up construction and major renovations across Texas.</p>
                 </div>
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
                     <div class="text-teal-600 text-3xl mb-4">🚗</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Personal Auto</h4>
-                    <p class="text-sm text-slate-500">Reliable coverage and instant SR-22 filings to keep you on the road.</p>
+                    <p class="text-sm text-slate-500">Reliable coverage and instant SR-22 filings to keep you on the road legally.</p>
                 </div>
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-teal-600 text-3xl mb-4">🏠</div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">Homeowners</h4>
-                    <p class="text-sm text-slate-500">Protecting your biggest investment with specialized property policies.</p>
-                </div>
-                <div class="p-8 rounded-3xl border border-slate-100 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
                     <div class="text-teal-600 text-3xl mb-4">🚛</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-2">Business Auto</h4>
-                    <p class="text-sm text-slate-500">Commercial vehicle and fleet insurance tailored for Texas business owners.</p>
+                    <p class="text-sm text-slate-500">Commercial vehicle and fleet insurance tailored for the Texas business environment.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-slate-100 bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-teal-600 text-3xl mb-4">🏠</div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">Homeowners</h4>
+                    <p class="text-sm text-slate-500">Protecting your biggest investment with specialized property policies statewide.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="bg-slate-900 text-white pt-24 pb-12 relative overflow-hidden">
-        <!-- Minimalist Texas Outline -->
+        <!-- Enlarged and Brightened Texas Outline -->
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Outline_of_Texas.svg" class="footer-texas-outline" alt="">
         
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-left relative z-10">
             <div>
                 <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Direct Contact</h4>
                 <p class="text-sm font-light text-slate-400 leading-loose">
-                    Phone: (210) 590-9955<br>
+                    Phone: <a href="tel:2105909955" class="text-white hover:text-teal-400">(210) 590-9955</a><br>
                     Email: info@fcinsuranceservices.com<br>
                     <strong class="text-white">8526 Tuxford, San Antonio, TX 78239</strong><br>
-                    San Antonio, TX 78239
+                    Serving All Four Corners of Texas
                 </p>
             </div>
             <div>
@@ -364,9 +363,9 @@
             <div>
                 <h4 class="text-teal-400 font-bold uppercase text-xs tracking-[0.3em] mb-8">Legal</h4>
                 <ul class="text-sm font-light text-slate-400 space-y-4">
-                    <li><a href="privacy.html" class="hover:text-teal-400 transition-colors">Privacy Policy</a></li>
-                    <li><a href="terms.html" class="hover:text-teal-400 transition-colors">Legal Disclosures</a></li>
-                    <li><a href="accessibility.html" class="hover:text-teal-400 transition-colors">ADA Compliance</a></li>
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">Legal Disclosures</a></li>
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">ADA Compliance</a></li>
                 </ul>
             </div>
             <div>
@@ -377,7 +376,7 @@
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-slate-800 text-center text-[10px] text-slate-600 uppercase tracking-widest relative z-10">
-            © 2026 First Choice Insurance Services | San Antonio & Statewide Texas
+            © 2026 First Choice Insurance Services | San Antonio & Statewide Texas Coverage
         </div>
     </footer>
 </body>
