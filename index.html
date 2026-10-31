@@ -271,10 +271,99 @@
             <div class="glass-panel p-12 md:p-20 shadow-2xl border-teal-600/10 text-center">
                 <h2 class="text-5xl title-teal mb-4">Request a Quote</h2>
                 <p class="text-slate-500 mb-12">Proudly serving Texas families and businesses since 2004.</p>
-                <div class="mt-4">
-                    <iframe data-tally-src="https://tally.so/embed/vGAKg0?hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="450" frameborder="0" title="Insurance Quote Request"></iframe>
-                    <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s)}</script>
-                </div>
+                <form id="quote-form" class="space-y-6 text-left" novalidate>
+                    <input type="hidden" name="access_key" value="2df6a359-2834-4702-957f-d01ce3d45b05">
+                    <input type="hidden" name="subject" value="New Quote Request – FC Insurance Website">
+                    <input type="hidden" name="from_name" value="FC Insurance Website">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex flex-col">
+                            <label for="qf-name" class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 ml-2">Full Name</label>
+                            <input id="qf-name" type="text" name="name" placeholder="John Doe" required autocomplete="name" class="w-full p-5 rounded-2xl border border-slate-200 text-slate-700 bg-white focus:border-teal-500 outline-none transition-all">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="qf-email" class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 ml-2">Email</label>
+                            <input id="qf-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email" class="w-full p-5 rounded-2xl border border-slate-200 text-slate-700 bg-white focus:border-teal-500 outline-none transition-all">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex flex-col">
+                            <label for="qf-phone" class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 ml-2">Phone Number</label>
+                            <input id="qf-phone" type="tel" name="phone" placeholder="(210) 000-0000" required autocomplete="tel" class="w-full p-5 rounded-2xl border border-slate-200 text-slate-700 bg-white focus:border-teal-500 outline-none transition-all">
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="qf-interest" class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 ml-2">Insurance Interest</label>
+                            <select id="qf-interest" name="insurance_interest" required class="w-full p-5 rounded-2xl border border-slate-200 text-slate-700 bg-white focus:border-teal-500 outline-none transition-all">
+                                <option value="" disabled selected>Select coverage type</option>
+                                <option>Auto</option>
+                                <option>SR-22</option>
+                                <option>Home</option>
+                                <option>Builder's Risk</option>
+                                <option>Commercial</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label for="qf-message" class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 ml-2">Message (Optional)</label>
+                        <textarea id="qf-message" name="message" rows="4" placeholder="How can we help?" class="w-full p-5 rounded-2xl border border-slate-200 text-slate-700 bg-white focus:border-teal-500 outline-none transition-all"></textarea>
+                    </div>
+
+                    <button id="quote-submit" type="submit" class="w-full bg-teal-700 hover:bg-teal-800 text-white font-black py-6 rounded-2xl uppercase tracking-widest shadow-xl transition-all transform hover:-translate-y-1 disabled:opacity-60 disabled:cursor-not-allowed">
+                        Submit Quote Request
+                    </button>
+
+                    <p id="quote-result" role="status" aria-live="polite" class="hidden text-center text-sm font-semibold rounded-2xl p-4"></p>
+                </form>
+
+                <script>
+                (function () {
+                    var form = document.getElementById('quote-form');
+                    var btn = document.getElementById('quote-submit');
+                    var out = document.getElementById('quote-result');
+                    var label = btn.textContent.trim();
+
+                    function show(ok, msg) {
+                        out.textContent = msg;
+                        out.className = 'text-center text-sm font-semibold rounded-2xl p-4 ' +
+                            (ok ? 'bg-teal-50 text-teal-800 border border-teal-200'
+                                : 'bg-red-50 text-red-700 border border-red-200');
+                    }
+
+                    form.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        if (!form.checkValidity()) { form.reportValidity(); return; }
+                        btn.disabled = true;
+                        btn.textContent = 'Sending…';
+                        out.className = 'hidden';
+
+                        fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            body: JSON.stringify(Object.fromEntries(new FormData(form)))
+                        })
+                        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j.success, j: j }; }); })
+                        .then(function (res) {
+                            if (res.ok) {
+                                form.reset();
+                                show(true, 'Thanks! Your request was sent. We\'ll call you shortly.');
+                            } else {
+                                show(false, (res.j && res.j.message) || 'Something went wrong. Please call (210) 590-9955.');
+                            }
+                        })
+                        .catch(function () {
+                            show(false, 'Network error. Please call (210) 590-9955.');
+                        })
+                        .finally(function () {
+                            btn.disabled = false;
+                            btn.textContent = label;
+                        });
+                    });
+                })();
+                </script>
             </div>
         </div>
     </section>
