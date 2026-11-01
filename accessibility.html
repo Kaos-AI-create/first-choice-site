@@ -8,26 +8,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>body { font-family: 'Outfit', sans-serif; }</style>
 </head>
-<body class="bg-slate-900 text-slate-300">
-    <div class="max-w-4xl mx-auto px-6 py-20">
-        <a href="index.html" class="text-teal-400 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold">← Back to Home</a>
-        
-        <h1 class="text-4xl font-extrabold text-white mt-8 mb-4">ADA Compliance</h1>
-        <p class="text-slate-500 mb-12 uppercase tracking-widest text-xs">Commitment to Accessibility</p>
-        
-        <div class="space-y-8 leading-relaxed">
+<body class="bg-slate-950 text-slate-300 antialiased">
+    <header class="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+        <div class="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between gap-4">
+            <a href="index.html" class="group inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-teal-300 transition-colors hover:bg-teal-500/20 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400">
+                <svg class="h-4 w-4 transition-transform group-hover:-translate-x-0.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10H4m0 0 5-5m-5 5 5 5"/></svg>
+                Back to Home
+            </a>
+            <nav aria-label="Breadcrumb" class="text-xs uppercase tracking-widest text-slate-500">
+                <span class="hidden sm:inline">First Choice <span class="mx-2 text-slate-700">/</span> </span><span aria-current="page" class="text-slate-300">Accessibility</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/90 p-8 md:p-12 shadow-2xl shadow-teal-500/5 ring-1 ring-white/5">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.15] pb-1 bg-gradient-to-r from-white via-teal-100 to-teal-300 bg-clip-text text-transparent">ADA Compliance</h1>
+            <p class="mt-3 mb-12 text-xs uppercase tracking-widest text-slate-400">Commitment to Accessibility</p>
+
+            <div class="space-y-8 leading-relaxed">
             <section>
-                <h2 class="text-xl font-bold text-teal-400 mb-4">Our Commitment</h2>
-                <p>First Choice Insurance Services is committed to ensuring that our website is accessible to everyone. We strive to follow WCAG 2.1 guidelines to provide a seamless digital experience for all visitors.</p>
+                <h2 class="text-xl font-bold tracking-tight text-teal-400 mb-4">Our Commitment</h2>
+                <p class="text-slate-300">First Choice Insurance Services is committed to ensuring that our website is accessible to everyone. We strive to follow WCAG 2.1 guidelines to provide a seamless digital experience for all visitors.</p>
             </section>
 
-            <section class="pt-8 border-t border-slate-800">
-                <p class="text-sm">Need assistance? Contact us directly:<br>
-                <strong class="text-white">Phone:</strong> (210) 590-9955<br>
-                <strong class="text-white">Email:</strong> info@fcinsuranceservices.com<br>
-                <strong class="text-white">Address:</strong> 8526 Tuxford, San Antonio, TX 78239</p>
+            <section class="mt-12 rounded-2xl border border-teal-500/20 bg-gradient-to-br from-teal-500/10 via-slate-900 to-slate-900 p-6 md:p-8">
+                <p class="text-sm text-slate-400">Need assistance? Contact us directly:</p>
+                <p class="mt-1 text-lg font-bold tracking-tight text-white">First Choice Insurance Services</p>
+                <p class="mb-6 text-sm text-slate-400">Serving San Antonio &amp; all of Texas</p>
+                <div class="flex flex-col gap-3 sm:flex-row">
+                    <a href="tel:2105909955" class="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-700 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-teal-500/10 transition-colors hover:bg-teal-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400">
+                        <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+                        (210) 590-9955
+                    </a>
+                    <a href="mailto:info@fcinsuranceservices.com" class="inline-flex items-center justify-center gap-2 rounded-xl border border-teal-500/30 bg-slate-800/60 px-5 py-3 text-sm font-bold text-teal-300 transition-colors hover:bg-slate-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400">
+                        <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                        info@fcinsuranceservices.com
+                    </a>
+                </div>
             </section>
-        </div>
-    </div>
+            </div>
+        </article>
+    </main>
 </body>
 </html>
